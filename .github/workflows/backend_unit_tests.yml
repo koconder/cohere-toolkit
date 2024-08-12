@@ -3,7 +3,8 @@ name: Backend unit tests
 on:
   push:
     branches: [main]
-  pull_request:
+  pull_request: {}
+  merge_group: {}
 
 jobs:
   pytest:
