@@ -17,6 +17,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Docker
         run: make test-db
+      - name: Install dependencies
+        run: poetry install --with dev 
       - name: Test with pytest
         if: github.actor != 'dependabot[bot]'
         run: |
