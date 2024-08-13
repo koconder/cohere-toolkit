@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --with dev --no-interaction --no-root
-      - name: Setup Docker
+      - name: Setup test DB container
         run: make test-db
       - name: Test with pytest
         if: github.actor != 'dependabot[bot]'
