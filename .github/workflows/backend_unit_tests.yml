@@ -19,18 +19,15 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
       - name: Install dependencies
         run: |
           pip install poetry==1.2.2
-          poetry install
+          poetry install --with dev
       - name: Setup Docker
         run: make test-db
       - name: Test with pytest
         if: github.actor != 'dependabot[bot]'
         run: |
-          pip install pytest
           make run-unit-tests 
       # - name: Run unit tests
       #   if: github.actor != 'dependabot[bot]'
