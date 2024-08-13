@@ -15,10 +15,16 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
       - name: Install Poetry
         uses: snok/install-poetry@v1
       - name: Install dependencies
-        run: poetry install --with dev 
+        run: |
+          pip install poetry==1.2.2
+          poetry install
       - name: Setup Docker
         run: make test-db
       - name: Test with pytest
