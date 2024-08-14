@@ -42,15 +42,9 @@ jobs:
         run: |
           make run-unit-tests
         env:
-          PYTHONPATH: "src"
-      # - name: Run unit tests
-      #   if: github.actor != 'dependabot[bot]'
-      #   run: |
-      #     mkdir -p coverage
-      #     docker compose build --build-arg INSTALL_COMMUNITY_DEPS=true backend
-      #     docker compose run --name backend-container -v $(pwd)/coverage:/app/coverage backend poetry run pytest --cov=src/backend --cov-report=xml:/app/coverage/coverage.xml src/backend/tests/unit
-      # - name: Upload coverage reports to Codecov
-      #   uses: codecov/codecov-action@v4.0.1
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     file: coverage/coverage.xml
+          PYTHONPATH: src
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: coverage.xml
