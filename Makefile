@@ -16,7 +16,7 @@ down:
 
 .PHONY: run-unit-tests
 run-unit-tests:
-	poetry run python -m pytest src/backend/tests/unit
+	poetry run pytest src/backend/tests/unit
 
 .PHONY: run-community-tests
 run-community-tests:

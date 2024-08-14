@@ -40,7 +40,9 @@ jobs:
       - name: Test with pytest
         if: github.actor != 'dependabot[bot]'
         run: |
-          make run-unit-tests 
+          make run-unit-tests
+        env:
+          PYTHONPATH: "."
       # - name: Run unit tests
       #   if: github.actor != 'dependabot[bot]'
       #   run: |
