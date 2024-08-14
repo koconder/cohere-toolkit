@@ -42,7 +42,7 @@ jobs:
         run: |
           make run-unit-tests
         env:
-          PYTHONPATH: "."
+          PYTHONPATH: "src"
       # - name: Run unit tests
       #   if: github.actor != 'dependabot[bot]'
       #   run: |
