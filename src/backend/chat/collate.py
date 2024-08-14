@@ -68,7 +68,7 @@ async def rerank_and_chunk(
             text = output.get("text")
 
             if not text:
-                chunked_outputs.append([output])
+                chunked_outputs.append(output)
                 continue
 
             chunks = chunk(text)
